@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import OfferBanner from "../components/OfferBanner.astro";
+---
+<BaseLayout title="About Us" description="Locally owned and operated in Raleigh, NC. Eco-friendly cleaning for a healthier home.">
+  <PageHero eyebrow="About us" title="Locally owned and operated in Raleigh" lead="Transforming homes across Raleigh with natural, non-toxic cleaning solutions." />
+
+  <section class="section">
+    <div class="container story">
+      <div class="story__photo" aria-hidden="true">Photo of Denton (Teotihuacan photo from current site)</div>
+      <div>
+        <p>My mom has run her own cleaning business for over a decade, and I spent years by her side. From family homes to office spaces, I learned what real care and high attention to detail looked like.</p>
+        <p>So when it came time to hire help for my own home, I had high standards, and quickly realized how hard it was to find cleaners who truly delivered.</p>
+        <p>Most services I tried were inconsistent. And almost all of them used harsh chemicals I didn't want in my home.</p>
+        <p>After moving to Raleigh, I saw the same gaps here. That's why I started Ivory Pines: to provide the same level of care and attention to detail that I gave to my mom's clients and my own home, without ever compromising on quality or health.</p>
+        <p>When I'm not helping clients come home to a space that feels fresh and calm, you'll usually find me exploring new corners of the world. But Raleigh is home, and at Ivory Pines, we take pride in treating your home with the same care we'd want for our own.</p>
+        <p>Let us transform your space with eco-friendly cleaning you can count on. Your home deserves the best.</p>
+        <p class="sig">– Denton, Founder</p>
+      </div>
+    </div>
+  </section>
+
+  <OfferBanner />
+</BaseLayout>
+<style>
+  .story { display: grid; grid-template-columns: 1fr 1.3fr; gap: 64px; align-items: start; max-width: 1040px; }
+  .story__photo { aspect-ratio: 4/5; border-radius: var(--radius-lg); background: var(--sage-soft); display: grid; place-items: center; text-align: center; padding: 20px; color: var(--muted); position: sticky; top: 110px; }
+  .story p { font-size: 1.08rem; }
+  .sig { font-family: var(--font-display); font-size: 1.3rem !important; color: var(--forest-deep); }
+  @media (max-width: 820px) { .story { grid-template-columns: 1fr; } .story__photo { position: static; } }
+</style>

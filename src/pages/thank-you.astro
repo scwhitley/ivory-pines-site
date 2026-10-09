@@ -1,0 +1,10 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import site from "../data/site.json";
+---
+<BaseLayout title="Thank You">
+  <PageHero eyebrow="Request received" title="Thank you!" lead="We'll reach out within one business day to learn a little about your home.">
+    <p style="margin-top:20px">Need us sooner? Call or text <a href={site.phoneHref}><strong>{site.phone}</strong></a>.</p>
+  </PageHero>
+</BaseLayout>

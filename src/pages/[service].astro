@@ -1,0 +1,54 @@
+---
+// One template generates all three service pages from src/data/services.json
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import ChecklistTabs from "../components/ChecklistTabs.astro";
+import QuoteForm from "../components/QuoteForm.astro";
+import OfferBanner from "../components/OfferBanner.astro";
+import FAQ from "../components/FAQ.astro";
+import services from "../data/services.json";
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { service: s.slug }, props: { s } }));
+}
+const { s } = Astro.props;
+---
+<BaseLayout title={`${s.name} in Raleigh, NC`} description={s.short}>
+  <PageHero eyebrow="Eco-friendly cleaning" title={`${s.name} in Raleigh`} lead={s.intro}>
+    <div style="margin-top:28px"><a href="#quote" class="btn btn--primary">Get a free quote</a></div>
+  </PageHero>
+
+  <section class="section">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">Best for</span>
+        <h2>Is this the right clean for you?</h2>
+        <ul class="checks">{s.bestFor.map((b: string) => <li>{b}</li>)}</ul>
+      </div>
+      <div id="quote"><QuoteForm /></div>
+    </div>
+  </section>
+
+  <section class="section section--warm">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What's included</span>
+        <h2>Your {s.name.toLowerCase()} checklist</h2>
+      </div>
+      <ChecklistTabs only={s.checklistKey} />
+    </div>
+  </section>
+
+  <OfferBanner />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>Questions?</h2></div>
+      <FAQ />
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+</style>

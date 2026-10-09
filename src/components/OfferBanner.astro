@@ -1,0 +1,27 @@
+---
+import site from "../data/site.json";
+---
+<section class="offer">
+  <div class="container offer__inner">
+    <div>
+      <span class="eyebrow">{site.offer.label}</span>
+      <h2>{site.offer.title}</h2>
+      <p>{site.offer.text}</p>
+      <p class="offer__highlight">{site.offer.highlight}</p>
+    </div>
+    <div class="offer__actions">
+      <a href="/#quote" class="btn btn--brass">Request a quote</a>
+      <a href={site.phoneHref} class="btn btn--outline">Call or text {site.phone}</a>
+    </div>
+  </div>
+</section>
+<style>
+  .offer { background: var(--forest); color: var(--ivory); padding: 72px 0; position: relative; overflow: hidden; }
+  .offer::before { content: ""; position: absolute; right: -120px; top: -120px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(176,141,87,.28), transparent 70%); }
+  .offer__inner { display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; position: relative; }
+  .offer h2 { color: var(--ivory); margin-bottom: 8px; }
+  .offer p { color: #cfdacf; margin: 0 0 6px; }
+  .offer__highlight { color: var(--brass) !important; font-weight: 600; }
+  .offer__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .offer .btn--outline { color: var(--ivory); }
+</style>

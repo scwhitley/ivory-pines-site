@@ -1,0 +1,319 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import QuoteForm from "../components/QuoteForm.astro";
+import ChecklistTabs from "../components/ChecklistTabs.astro";
+import OfferBanner from "../components/OfferBanner.astro";
+import FAQ from "../components/FAQ.astro";
+import SocialIcons from "../components/SocialIcons.astro";
+import site from "../data/site.json";
+import services from "../data/services.json";
+
+const trustPoints = ["Consistent & reliable service", "Stress-free experience", "Locally owned & insured", "No contracts or hidden fees", "100% satisfaction guarantee"];
+
+const benefits = [
+  { t: "Breathe easier", d: "Better indoor air quality from non-toxic cleaning products." },
+  { t: "Feel at peace", d: "A clean, healthy home reduces stress and boosts well-being." },
+  { t: "More free time", d: "We handle the mess so you can focus on the moments that matter." },
+  { t: "Consistent service", d: "The same high standards, every single time." },
+];
+
+const steps = [
+  { t: "Let's get to know your home", d: "Request a quote and we'll ask a few thoughtful questions to understand your space and needs." },
+  { t: "Book when you're ready", d: "You'll get a private link to schedule at your convenience, with confirmations and updates along the way." },
+  { t: "A clean you'll love", d: "We clean with attention to every detail, then do a walkthrough to make sure nothing is missed." },
+];
+
+const promises = [
+  { t: "Transparent communication", d: "Always know what to expect, with reminders, updates, and no surprises." },
+  { t: "Locally owned & fully insured", d: "Professional, community-rooted service you can trust." },
+  { t: "Sparkling clean guarantee", d: "Love your clean or we'll come back and redo it for free." },
+];
+
+// Before/after pairs: drop photos into public/images/gallery/ and list them here
+const gallery = [
+  { label: "Kitchen", before: "", after: "" },
+  { label: "Bathroom", before: "", after: "" },
+  { label: "Living room", before: "", after: "" },
+];
+---
+<BaseLayout>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow">Serving Raleigh, NC</span>
+        <h1>Eco-friendly home cleaning in Raleigh</h1>
+        <p class="hero__lead">Non-toxic, detail-driven cleaning that leaves your home cleaner, healthier, and truly cared for.</p>
+        <ul class="checks hero__checks">{trustPoints.map((p) => <li>{p}</li>)}</ul>
+        <div class="hero__actions">
+          <a href="#quote" class="btn btn--primary">Get a free quote</a>
+          <a href={site.phoneHref} class="btn btn--outline">Call {site.phone}</a>
+        </div>
+      </div>
+      <div id="quote" class="hero__form"><QuoteForm /></div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="strip">
+    <div class="container strip__inner">
+      <span>★★★★★ <strong>5.0</strong> on Google <!-- TODO: confirm rating --></span>
+      <span>Non-toxic products</span>
+      <span>Fully insured</span>
+      <span>Same cleaner every visit</span>
+      <span>Satisfaction guaranteed</span>
+    </div>
+  </div>
+
+  <!-- BENEFITS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">More than a house cleaning</span>
+        <h2>A home that feels cleaner, healthier, and cared for</h2>
+        <p>Our non-toxic, detail-driven cleaning goes beyond surface shine, removing buildup, allergens, and stress from your space.</p>
+      </div>
+      <div class="grid grid-4">
+        {benefits.map((b, i) => (
+          <div class="benefit">
+            <span class="benefit__num">0{i + 1}</span>
+            <h3>{b.t}</h3>
+            <p>{b.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section--warm">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our services</span>
+        <h2>Eco-friendly cleaning services in Raleigh</h2>
+        <p>Top-quality cleaning with the care your home deserves.</p>
+      </div>
+      <div class="grid grid-3">
+        {services.map((s) => (
+          <a href={`/${s.slug}/`} class="service">
+            <div class="service__img" aria-hidden="true"></div>
+            <div class="service__body">
+              <h3>{s.name}</h3>
+              <p>{s.short}</p>
+              <span class="service__link">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What's included</span>
+        <h2>The 44-point clean you've been looking for</h2>
+        <p>We clean based on your home's condition, not a rigid policy. Deep cleans tackle buildup; routine cleans maintain those results with a thoughtful rotation.</p>
+      </div>
+      <ChecklistTabs />
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section section--forest">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>A hassle-free process</h2>
+        <p>From booking to cleaning, here's what to expect every step of the way.</p>
+      </div>
+      <div class="grid grid-3 steps">
+        {steps.map((s, i) => (
+          <div class="step">
+            <span class="step__num">{i + 1}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISES + FOUNDER -->
+  <section class="section">
+    <div class="container promise">
+      <div>
+        <span class="eyebrow">Our promise</span>
+        <h2>A higher standard of consistency</h2>
+        <p class="promise__lead">We show up on time, follow through on every detail, and deliver the same high-quality clean every visit, so you can relax knowing your home is in trusted hands.</p>
+        <div class="promise__list">
+          {promises.map((p) => (
+            <div><h3>{p.t}</h3><p>{p.d}</p></div>
+          ))}
+        </div>
+      </div>
+      <aside class="founder">
+        <div class="founder__photo" aria-hidden="true">Photo of Denton</div>
+        <blockquote>"I started Ivory Pines to give Raleigh families the care and attention to detail I learned working alongside my mom, without ever compromising on quality or health."</blockquote>
+        <p class="founder__sig">Denton, Founder</p>
+        <a href="/about/" class="founder__link">Read our story →</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="section section--warm">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our work</span>
+        <h2>The proof is in the polish</h2>
+        <p>Drag the slider to see the difference.</p>
+      </div>
+      <div class="grid grid-3">
+        {gallery.map((g) => (
+          <figure class="ba" data-ba>
+            {g.after ? <img src={g.after} alt={`${g.label} after cleaning`} /> : <div class="ba__ph ba__ph--after">After photo</div>}
+            <div class="ba__before">
+              {g.before ? <img src={g.before} alt={`${g.label} before cleaning`} /> : <div class="ba__ph">Before photo</div>}
+            </div>
+            <input type="range" min="0" max="100" value="50" aria-label={`Compare ${g.label} before and after`} />
+            <figcaption>{g.label}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Reviews</span>
+        <h2>See why neighbors choose Ivory Pines</h2>
+        <p>Embed the Google reviews widget here (the current site uses Trustindex), or paste real reviews in with permission.</p>
+      </div>
+      <div class="reviews-embed">Google reviews widget goes here</div>
+    </div>
+  </section>
+
+  <OfferBanner />
+
+  <!-- SERVICE AREAS -->
+  <section class="section section--warm">
+    <div class="container areas">
+      <div>
+        <span class="eyebrow">Service areas</span>
+        <h2>Serving Oak City &amp; surrounding areas</h2>
+        <p>Not sure if we serve your area? Call or text <a href={site.phoneHref}><strong>{site.phone}</strong></a> and we'll let you know.</p>
+      </div>
+      <ul class="areas__list">{site.serviceAreas.map((a) => <li>{a}</li>)}</ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Questions?</h2>
+      </div>
+      <FAQ />
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="section section--warm insta">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">@ivorypinescleaning</span>
+        <h2>Follow along</h2>
+        <p>Before-and-afters, eco cleaning tips, and a peek behind the scenes.</p>
+      </div>
+      <div class="insta__grid">
+        {Array.from({ length: 6 }).map(() => (
+          <a href={site.socials.instagram} target="_blank" rel="noopener" class="insta__tile" aria-label="View on Instagram"></a>
+        ))}
+      </div>
+      <div class="insta__cta">
+        <SocialIcons size={22} />
+        <a href={site.socials.instagram} target="_blank" rel="noopener" class="btn btn--primary">Follow on Instagram</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-ba]").forEach((el) => {
+    const range = el.querySelector("input")!;
+    const before = el.querySelector<HTMLElement>(".ba__before")!;
+    const set = () => (before.style.clipPath = `inset(0 ${100 - Number(range.value)}% 0 0)`);
+    range.addEventListener("input", set);
+    set();
+  });
+</script>
+
+<style>
+  .hero { padding: clamp(48px, 7vw, 96px) 0; background:
+      radial-gradient(1200px 500px at 100% 0%, var(--sage-soft), transparent 60%),
+      linear-gradient(180deg, var(--ivory) 0%, var(--ivory-warm) 100%); }
+  .hero__inner { display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: center; }
+  .hero__lead { font-size: 1.2rem; color: var(--muted); max-width: 520px; }
+  .hero__checks { margin: 26px 0 32px; }
+  .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .hero__actions .btn--outline { color: var(--forest); }
+  @media (max-width: 920px) { .hero__inner { grid-template-columns: 1fr; } }
+
+  .strip { background: var(--forest-deep); color: #d9e2d9; font-size: .9rem; }
+  .strip__inner { display: flex; justify-content: space-between; gap: 18px 32px; flex-wrap: wrap; padding-top: 18px; padding-bottom: 18px; }
+  .strip strong { color: var(--ivory); }
+
+  .benefit { padding: 28px 0; border-top: 1px solid var(--line); }
+  .benefit__num { font-family: var(--font-display); color: var(--brass); font-size: 1.1rem; }
+  .benefit h3 { margin-top: 10px; }
+  .benefit p { color: var(--muted); }
+
+  .service { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease; }
+  .service:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .service__img { aspect-ratio: 16/10; background: linear-gradient(135deg, var(--sage-soft), var(--sage)); }
+  .service__body { padding: 28px; }
+  .service__body p { color: var(--muted); }
+  .service__link { color: var(--forest); font-weight: 600; }
+
+  .step { padding: 32px; border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-lg); }
+  .step__num { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--brass); color: var(--white); font-weight: 600; margin-bottom: 18px; }
+  .step p { color: #cfdacf; }
+
+  .promise { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; }
+  .promise__lead { color: var(--muted); font-size: 1.08rem; }
+  .promise__list { display: grid; gap: 22px; margin-top: 32px; }
+  .promise__list > div { padding-left: 20px; border-left: 3px solid var(--sage); }
+  .promise__list p { color: var(--muted); margin: 0; }
+  .founder { background: var(--ivory-warm); border-radius: var(--radius-lg); padding: 32px; }
+  .founder__photo { aspect-ratio: 4/3; border-radius: var(--radius); background: var(--sage-soft); display: grid; place-items: center; color: var(--muted); font-size: .85rem; margin-bottom: 22px; }
+  .founder blockquote { margin: 0 0 14px; font-family: var(--font-display); font-size: 1.2rem; line-height: 1.45; color: var(--forest-deep); }
+  .founder__sig { font-weight: 600; margin-bottom: 8px; }
+  .founder__link { color: var(--forest); font-weight: 600; text-decoration: none; }
+  @media (max-width: 860px) { .promise { grid-template-columns: 1fr; } }
+
+  .ba { position: relative; margin: 0; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/3; background: var(--white); }
+  .ba img, .ba__ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ba__ph { display: grid; place-items: center; background: var(--sage); color: var(--white); font-weight: 600; }
+  .ba__before { position: absolute; inset: 0; }
+  .ba__before .ba__ph { background: #a59c8a; }
+  .ba input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+  .ba figcaption { position: absolute; left: 14px; bottom: 14px; background: rgba(20,40,32,.8); color: var(--ivory); padding: 6px 14px; border-radius: 999px; font-size: .82rem; pointer-events: none; }
+
+  .reviews-embed { border: 2px dashed var(--line); border-radius: var(--radius-lg); padding: 64px 20px; text-align: center; color: var(--muted); }
+
+  .areas { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .areas p { color: var(--muted); }
+  .areas__list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .areas__list li { padding: 10px 18px; background: var(--white); border: 1px solid var(--line); border-radius: 999px; font-weight: 500; }
+  @media (max-width: 760px) { .areas { grid-template-columns: 1fr; } }
+
+  .insta__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .insta__tile { aspect-ratio: 1; border-radius: 12px; background: linear-gradient(135deg, var(--sage-soft), var(--sage)); }
+  .insta__cta { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 32px; color: var(--forest); }
+  @media (max-width: 760px) { .insta__grid { grid-template-columns: repeat(3, 1fr); } }
+</style>

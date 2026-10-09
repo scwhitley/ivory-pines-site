@@ -1,0 +1,31 @@
+{
+  "name": "Ivory Pines Cleaning",
+  "legalName": "Ivory Pines Cleaning, LLC",
+  "tagline": "Eco-friendly home cleaning in Raleigh",
+  "description": "Ivory Pines is a premium, eco-friendly house cleaning service in Raleigh, NC, specializing in non-toxic, natural cleaning solutions for a cleaner, healthier home.",
+  "url": "https://www.ivorypinescleaning.com",
+  "logo": "https://www.ivorypinescleaning.com/wp-content/uploads/2025/01/IPC_Dark_Green_Logo.svg",
+  "phone": "(919) 910-0195",
+  "phoneHref": "tel:+19199100195",
+  "smsHref": "sms:+19199100195",
+  "email": "hello@ivorypinescleaning.com",
+  "hours": "Mon – Sun: 8:00am – 6:00pm",
+  "address": {
+    "street": "3064 Wake Forest Road #1277",
+    "city": "Raleigh",
+    "region": "NC",
+    "postal": "27609"
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/ivorypinescleaningnc",
+    "instagram": "https://www.instagram.com/ivorypinescleaning"
+  },
+  "careers": "https://ivorypinescleaning.applytojob.com/apply",
+  "serviceAreas": ["Raleigh", "Cary", "Apex", "Morrisville", "Wake Forest", "Rolesville", "Garner", "Durham", "Chapel Hill", "Clayton"],
+  "offer": {
+    "label": "Limited time offer",
+    "title": "Switching from another cleaner?",
+    "text": "Discover a higher standard of cleaning and love it, guaranteed.",
+    "highlight": "TODO: name the offer, e.g. $50 off your first clean"
+  }
+}

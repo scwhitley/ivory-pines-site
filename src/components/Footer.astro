@@ -1,0 +1,56 @@
+---
+import site from "../data/site.json";
+import services from "../data/services.json";
+import SocialIcons from "./SocialIcons.astro";
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <img src={site.logo} alt={site.name} class="footer__logo" />
+      <p>{site.description}</p>
+      <SocialIcons size={20} />
+    </div>
+    <div>
+      <h4>Services</h4>
+      <ul>{services.map((s) => <li><a href={`/${s.slug}/`}>{s.name}</a></li>)}</ul>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <ul>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/cleaning-checklist/">Cleaning Checklist</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href={site.careers} target="_blank" rel="noopener">Careers</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href={site.phoneHref}>{site.phone}</a></li>
+        <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li>{site.hours}</li>
+        <li>Raleigh, NC &amp; surrounding areas</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>&copy; {year} {site.legalName}. All rights reserved.</span>
+    <span><a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/terms-conditions/">Terms &amp; Conditions</a></span>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--forest-deep); color: #c9d4ca; padding: 72px 0 28px; font-size: .95rem; }
+  .footer__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 40px; }
+  .footer__logo { height: 56px; width: auto; margin-bottom: 18px; filter: brightness(0) invert(1); opacity: .92; }
+  .footer h4 { color: var(--ivory); font-family: var(--font-body); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  .footer ul { list-style: none; padding: 0; margin: 0; }
+  .footer li { margin-bottom: 10px; }
+  .footer a { text-decoration: none; }
+  .footer a:hover { color: var(--ivory); }
+  .footer__bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 56px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.12); font-size: .85rem; }
+  @media (max-width: 860px) { .footer__grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .footer__grid { grid-template-columns: 1fr; } }
+</style>

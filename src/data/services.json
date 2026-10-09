@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "deep-cleaning",
+    "name": "Deep Cleaning",
+    "short": "A top-to-bottom clean that tackles dirt, grime, and buildup. Ideal for first-time cleanings or seasonal resets.",
+    "intro": "Our deep clean goes beyond the surface. We scrub, detail, and reset every room so your home starts fresh, then routine cleans keep it that way.",
+    "bestFor": ["First-time clients", "Seasonal resets", "Homes that haven't been professionally cleaned recently", "Before hosting guests"],
+    "checklistKey": "deep"
+  },
+  {
+    "slug": "routine-cleaning",
+    "name": "Routine Cleaning",
+    "short": "Perfect if you're switching from another cleaner or just had a deep clean. Save up to 40% with recurring cleans.",
+    "intro": "Weekly, bi-weekly, or monthly visits from the same trusted cleaner, with a thoughtful rotation so overlooked areas never build up.",
+    "bestFor": ["Busy households", "Homes with pets", "Clients switching from another cleaner", "Maintaining a recent deep clean"],
+    "checklistKey": "routine"
+  },
+  {
+    "slug": "move-in-out-cleaning",
+    "name": "Move In/Out Cleaning",
+    "short": "Prepare your home for its next chapter, whether you're moving in, moving out, or getting ready to sell.",
+    "intro": "An empty-home clean that covers the inside of cabinets, drawers, closets, and appliances, so the space is truly ready for whoever comes next.",
+    "bestFor": ["Moving into a new home", "Getting your deposit back", "Listing a home for sale", "Landlords between tenants"],
+    "checklistKey": "move"
+  }
+]

@@ -1,0 +1,64 @@
+---
+// Netlify Forms collects submissions while testing (Netlify dashboard → Forms).
+// Before launch, point this at whatever booking/CRM tool the business uses.
+import services from "../data/services.json";
+---
+<form name="quote" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="company" class="quote">
+  <input type="hidden" name="form-name" value="quote" />
+  <p class="visually-hidden"><label>Leave blank <input name="company" /></label></p>
+
+  <h3>Request a free quote</h3>
+  <p class="quote__sub">We'll reach out within one business day.</p>
+
+  <div class="row">
+    <label>First name<input name="first_name" required autocomplete="given-name" /></label>
+    <label>Last name<input name="last_name" required autocomplete="family-name" /></label>
+  </div>
+  <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+  <label>Phone<input type="tel" name="phone" required autocomplete="tel" /></label>
+  <div class="row">
+    <label>Service
+      <select name="service">
+        {services.map((s) => <option>{s.name}</option>)}
+        <option>Not sure yet</option>
+      </select>
+    </label>
+    <label>ZIP code<input name="zip" inputmode="numeric" maxlength="5" /></label>
+  </div>
+
+  <fieldset>
+    <legend>Best way to reach you</legend>
+    <label class="pill"><input type="radio" name="contact_pref" value="Call" checked /> Call</label>
+    <label class="pill"><input type="radio" name="contact_pref" value="Text" /> Text</label>
+    <label class="pill"><input type="radio" name="contact_pref" value="Email" /> Email</label>
+  </fieldset>
+
+  <label class="consent">
+    <input type="checkbox" name="sms_consent" value="yes" />
+    <span>I agree to receive emails and text messages from Ivory Pines Cleaning, LLC. Message and data rates may apply. Reply STOP to unsubscribe.</span>
+  </label>
+
+  <button type="submit" class="btn btn--primary">Get my free quote</button>
+</form>
+
+<style>
+  .quote { background: var(--white); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow); border: 1px solid var(--line); }
+  .quote h3 { margin-bottom: 4px; }
+  .quote__sub { color: var(--muted); font-size: .92rem; margin-bottom: 20px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  label { display: block; font-size: .82rem; font-weight: 600; color: var(--muted); margin-bottom: 12px; }
+  input:not([type=radio]):not([type=checkbox]), select {
+    display: block; width: 100%; margin-top: 5px; padding: 12px 14px;
+    font: inherit; font-size: .96rem; color: var(--ink);
+    background: var(--ivory); border: 1px solid var(--line); border-radius: 10px;
+  }
+  input:focus, select:focus { outline: 2px solid var(--sage); outline-offset: 1px; }
+  fieldset { border: 0; padding: 0; margin: 4px 0 14px; display: flex; flex-wrap: wrap; gap: 8px; }
+  legend { font-size: .82rem; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
+  .pill { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); cursor: pointer; }
+  .pill:has(input:checked) { background: var(--sage-soft); border-color: var(--sage); }
+  .consent { display: flex; gap: 10px; font-weight: 400; font-size: .76rem; line-height: 1.5; }
+  .consent input { margin-top: 3px; }
+  .quote .btn { width: 100%; margin-top: 6px; }
+  @media (max-width: 420px) { .row { grid-template-columns: 1fr; } .quote { padding: 24px; } }
+</style>

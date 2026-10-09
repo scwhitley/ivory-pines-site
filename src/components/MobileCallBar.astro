@@ -1,0 +1,16 @@
+---
+import site from "../data/site.json";
+---
+<div class="callbar">
+  <a href={site.phoneHref}>Call</a>
+  <a href={site.smsHref}>Text</a>
+  <a href="/#quote" class="callbar__quote">Free Quote</a>
+</div>
+<style>
+  .callbar { display: none; }
+  @media (max-width: 760px) {
+    .callbar { display: grid; grid-template-columns: 1fr 1fr 1.4fr; position: fixed; bottom: 0; left: 0; right: 0; z-index: 60; background: var(--forest-deep); box-shadow: 0 -6px 20px rgba(0,0,0,.15); }
+    .callbar a { padding: 18px 0; text-align: center; color: var(--ivory); text-decoration: none; font-weight: 600; border-right: 1px solid rgba(255,255,255,.12); }
+    .callbar__quote { background: var(--brass); border-right: 0 !important; }
+  }
+</style>

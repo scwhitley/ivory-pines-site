@@ -1,0 +1,81 @@
+---
+import checklist from "../data/checklist.json";
+interface Props { only?: "routine" | "deep" | "move" }
+const { only } = Astro.props;
+const keys = (only ? [only] : ["routine", "deep", "move"]) as ("routine" | "deep" | "move")[];
+const icons: Record<string, string> = {
+  "Living Room & Common Areas": "🛋️", "Kitchen & Dining": "🍽️", "Bedrooms": "🛏️", "Bathrooms": "🛁",
+};
+---
+<div class="cl" data-checklist>
+  {keys.length > 1 && (
+    <div class="cl__tabs" role="tablist">
+      {keys.map((k, i) => (
+        <button role="tab" class="cl__tab" aria-selected={i === 0 ? "true" : "false"} data-tab={k}>
+          {checklist[k].label}
+        </button>
+      ))}
+    </div>
+  )}
+
+  {keys.map((k, i) => (
+    <div class="cl__panel" data-panel={k} hidden={i !== 0}>
+      <p class="cl__note">{checklist[k].note}</p>
+      {checklist[k].rooms.map((room, r) => (
+        <details class="cl__room" open={r === 0}>
+          <summary>
+            <span>{icons[room.name]} {room.name}</span>
+            <small>{room.every.length + ((room as any).asNeeded?.length ?? 0)} tasks</small>
+          </summary>
+          <div class="cl__cols">
+            <div>
+              {(room as any).asNeeded && <h4>Every visit</h4>}
+              <ul class="checks">{room.every.map((t) => <li>{t}</li>)}</ul>
+            </div>
+            {(room as any).asNeeded && (
+              <div>
+                <h4>Rotating, as needed</h4>
+                <ul class="checks checks--soft">{(room as any).asNeeded.map((t: string) => <li>{t}</li>)}</ul>
+              </div>
+            )}
+          </div>
+        </details>
+      ))}
+    </div>
+  ))}
+
+  <div class="cl__extras">
+    <strong>Add-on extras:</strong> {checklist.extras.join(" · ")}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll("[data-checklist]").forEach((root) => {
+    const tabs = root.querySelectorAll<HTMLButtonElement>("[data-tab]");
+    tabs.forEach((tab) =>
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.setAttribute("aria-selected", String(t === tab)));
+        root.querySelectorAll<HTMLElement>("[data-panel]").forEach((p) => {
+          p.hidden = p.dataset.panel !== tab.dataset.tab;
+        });
+      })
+    );
+  });
+</script>
+
+<style>
+  .cl__tabs { display: flex; gap: 6px; padding: 6px; background: var(--white); border: 1px solid var(--line); border-radius: 999px; width: fit-content; margin: 0 auto 28px; flex-wrap: wrap; justify-content: center; }
+  .cl__tab { font: inherit; font-weight: 600; font-size: .94rem; padding: 10px 22px; border-radius: 999px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+  .cl__tab[aria-selected="true"] { background: var(--forest); color: var(--ivory); }
+  .cl__note { text-align: center; color: var(--muted); margin-bottom: 24px; }
+  .cl__room { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; }
+  .cl__room summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; font-family: var(--font-display); font-size: 1.15rem; color: var(--forest-deep); }
+  .cl__room summary::-webkit-details-marker { display: none; }
+  .cl__room summary small { font-family: var(--font-body); font-size: .8rem; color: var(--muted); }
+  .cl__room summary::after { content: "+"; font-family: var(--font-body); font-size: 1.4rem; color: var(--brass); margin-left: 16px; }
+  .cl__room[open] summary::after { content: "–"; }
+  .cl__cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 8px 32px; padding: 4px 24px 22px; font-size: .95rem; }
+  .cl__cols h4 { font-family: var(--font-body); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); margin: 6px 0 12px; }
+  .checks--soft li::before { background-color: var(--ivory-warm); }
+  .cl__extras { margin-top: 22px; padding: 18px 24px; background: var(--sage-soft); border-radius: var(--radius); font-size: .93rem; }
+</style>

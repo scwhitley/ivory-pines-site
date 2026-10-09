@@ -1,0 +1,73 @@
+{
+  "routine": {
+    "label": "Routine Clean",
+    "note": "Every-visit tasks happen each time. As-needed tasks rotate through your schedule so nothing builds up.",
+    "rooms": [
+      {
+        "name": "Living Room & Common Areas",
+        "every": ["Remove cobwebs", "Dust light fixtures", "Dust ceiling fans", "Dust vents", "Dust furniture", "Dust shelves", "Dust lamps & lampshades", "Dust decor & picture frames", "Dust banister and handrails", "Clean surfaces", "Clean mirrors", "Clean entry and exit glass doors", "Dust blinds", "Vacuum upholstery & under cushions", "Vacuum or sweep and mop accessible areas under furniture", "Sweep and mop or vacuum all floors & rugs", "Tidy areas, fold blankets & arrange pillows", "Empty garbage & replace liners"],
+        "asNeeded": ["Doors and door frames hand wiped", "Window sills and ledges hand wiped", "Knickknacks individually cleaned", "Dust and spot clean baseboards"]
+      },
+      {
+        "name": "Kitchen & Dining",
+        "every": ["Remove cobwebs", "Dust light fixtures", "Dust ceiling fans", "Dust vents", "Dust furniture", "Dust shelves", "Dust lamps & lampshades", "Dust decor & picture frames", "Clean surfaces", "Clean mirrors", "Dust blinds", "Wipe down tables & chairs", "Clean & disinfect countertops & backsplash", "Clean and dry sink & faucet", "Clean and polish faucet & fixtures", "Clean and polish oven and stove exterior", "Clean and polish fridge exterior", "Clean the interior & exterior of microwave", "Clean stovetop, grates, burners & control panel", "Sweep and mop or vacuum all floors & rugs", "Empty garbage & replace liners"],
+        "asNeeded": ["Inside of range hood cleaned", "Drip pans or glass top surfaces cleaned", "Doors and door frames hand wiped", "Knickknack areas cleaned", "Fronts of cabinets hand wiped", "Dust and spot clean baseboards"]
+      },
+      {
+        "name": "Bedrooms",
+        "every": ["Remove cobwebs", "Dust light fixtures", "Dust ceiling fans", "Dust vents", "Dust furniture", "Dust shelves", "Dust lamps & lampshades", "Dust decor & picture frames", "Clean surfaces", "Clean mirrors", "Dust blinds", "Vacuum upholstery & under cushions", "Vacuum or sweep and mop accessible areas under furniture", "Sweep and mop or vacuum all floors & rugs", "Tidy areas, fold blankets & arrange pillows", "Make beds and change linens (if requested & left on bed)"],
+        "asNeeded": ["Doors and door frames hand wiped", "Window sills and ledges hand wiped", "Knickknacks individually cleaned", "Dust and spot clean baseboards"]
+      },
+      {
+        "name": "Bathrooms",
+        "every": ["Remove cobwebs", "Dust light fixtures", "Dust vents", "Dust shelves", "Dust decor & picture frames", "Clean, disinfect & dry sinks, countertops, faucets & fixtures", "Polish faucets & fixtures (towel racks, toilet paper holder, etc.)", "Clean and scrub shower tiles, glass and tub", "Clean mirrors & vanity lights", "Clean and sanitize toilet and base", "Sweep & mop floors, vacuum bath mats", "Tidy personal items & hand towels", "Empty garbage & replace liners", "Change linens"],
+        "asNeeded": ["Scrub tile grout", "Shower door given extra attention", "Wipe doors and door frames", "Wipe front of cabinets", "Dust and spot clean baseboards"]
+      }
+    ]
+  },
+  "deep": {
+    "label": "Deep Clean",
+    "note": "Everything in a routine clean, plus intensive detail work wherever buildup exists.",
+    "rooms": [
+      {
+        "name": "Living Room & Common Areas",
+        "every": ["Remove cobwebs", "Dust light fixtures, ceiling fans & vents", "Dust furniture & shelves", "Dust lamps & lampshades", "Dust decor & picture frames", "Clean surfaces", "Clean mirrors", "Vacuum or dust curtains & blinds", "Vacuum upholstery & under cushions", "Sweep and mop or vacuum all floors & rugs", "Tidy areas, fold blankets & arrange pillows", "Empty garbage & replace liners", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames", "Spot clean walls as needed"]
+      },
+      {
+        "name": "Kitchen & Dining",
+        "every": ["Remove cobwebs", "Dust light fixtures, ceiling fans & vents", "Dust furniture & shelves", "Dust lamps & lampshades", "Dust decor & picture frames", "Clean surfaces", "Clean mirrors", "Vacuum or dust curtains & blinds", "Wipe down tables & chairs", "Clean & disinfect countertops & backsplash", "Clean and dry sink & faucet", "Clean and polish faucet & fixtures", "Clean and polish all appliance exteriors", "Clean the interior & exterior of microwave", "Clean stovetop, grates, burners & control panel", "Sweep and mop or vacuum all floors & rugs", "Empty garbage & replace liners", "Clean oven hood vent", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames", "Spot clean walls as needed"]
+      },
+      {
+        "name": "Bedrooms",
+        "every": ["Remove cobwebs", "Dust light fixtures, ceiling fans & vents", "Dust furniture & shelves", "Dust lamps & lampshades", "Dust decor & picture frames", "Clean surfaces", "Clean mirrors", "Vacuum or dust curtains & blinds", "Vacuum upholstery & under cushions", "Sweep and mop or vacuum all floors & rugs", "Tidy areas, fold blankets & arrange pillows", "Make beds and change linens (if requested & left on bed)", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames", "Spot clean walls as needed"]
+      },
+      {
+        "name": "Bathrooms",
+        "every": ["Remove cobwebs", "Dust light fixtures & vents", "Dust shelves", "Dust decor & picture frames", "Clean, disinfect & dry sinks, countertops, faucets & fixtures", "Polish faucets & fixtures (towel racks, toilet paper holder, etc.)", "Clean, disinfect & dry showers & bathtubs", "Clean shower glass", "Clean mirrors & vanity lights", "Clean & disinfect toilets (inside, outside & base)", "Sweep & mop floors, vacuum bath mats", "Tidy personal items & hand towels", "Empty garbage & replace liners", "Scrub tile grout in shower", "Wipe cabinet exteriors & drawers", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames"]
+      }
+    ]
+  },
+  "move": {
+    "label": "Move-In/Out Clean",
+    "note": "An empty-home clean, including the inside of cabinets, drawers, closets and appliances.",
+    "rooms": [
+      {
+        "name": "Living Room & Common Areas",
+        "every": ["Remove cobwebs", "Dust light fixtures, ceiling fans & vents", "Clean surfaces", "Clean mirrors", "Vacuum or dust curtains & blinds", "Sweep and mop or vacuum all floors & rugs", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames", "Spot clean walls as needed", "Clean interior & exterior of all cabinets & drawers"]
+      },
+      {
+        "name": "Kitchen & Dining",
+        "every": ["Remove cobwebs", "Dust light fixtures, ceiling fans & vents", "Clean surfaces", "Clean mirrors", "Vacuum or dust curtains & blinds", "Clean & disinfect countertops & backsplash", "Clean and dry sink & faucet", "Clean and polish faucet & fixtures", "Clean and polish all appliance exteriors", "Clean the interior & exterior of microwave", "Clean stovetop, grates, burners & control panel", "Sweep and mop or vacuum all floors & rugs", "Clean oven hood vent", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames", "Spot clean walls as needed", "Clean interior & exterior of all appliances", "Wipe down interior & exterior of all cabinets & drawers", "Clean pantry & wipe down shelves"]
+      },
+      {
+        "name": "Bedrooms",
+        "every": ["Remove cobwebs", "Dust light fixtures, ceiling fans & vents", "Clean surfaces", "Clean mirrors", "Vacuum or dust curtains & blinds", "Sweep and mop or vacuum all floors & rugs", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames", "Spot clean walls as needed", "Wipe down closet shelves"]
+      },
+      {
+        "name": "Bathrooms",
+        "every": ["Remove cobwebs", "Dust light fixtures & vents", "Dust shelves", "Clean, disinfect & dry sinks, countertops, faucets & fixtures", "Polish faucets & fixtures (towel racks, toilet paper holder, etc.)", "Clean, disinfect & dry showers & bathtubs", "Clean shower glass", "Clean mirrors & vanity lights", "Clean & disinfect toilets (inside, outside & base)", "Sweep & mop floors, vacuum bath mats", "Scrub tile grout in shower", "Wipe cabinet exteriors & drawers", "Clean baseboards", "Wipe windowsills & window frames", "Wipe down light switches & electrical outlets", "Wipe down doors, doorknobs & door frames", "Wipe down interior & exterior of all cabinets & drawers", "Wipe down inside of linen closet & shelves"]
+      }
+    ]
+  },
+  "extras": ["Inside fridge", "Inside oven", "Wash dishes and/or load dishwasher", "Laundry", "Inside cabinets & drawers", "Walls", "Exterior patio/balcony", "Garage"]
+}

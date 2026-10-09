@@ -1,0 +1,11 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import ChecklistTabs from "../components/ChecklistTabs.astro";
+import OfferBanner from "../components/OfferBanner.astro";
+---
+<BaseLayout title="Cleaning Checklist" description="Exactly what's included in every Ivory Pines routine, deep, and move-in/out clean.">
+  <PageHero eyebrow="What's included" title="Our cleaning checklist" lead="We clean based on your home's condition, not a rigid policy. Here's exactly what each service covers." />
+  <section class="section"><div class="container"><ChecklistTabs /></div></section>
+  <OfferBanner />
+</BaseLayout>

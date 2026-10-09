@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHero from "../components/PageHero.astro";
+import QuoteForm from "../components/QuoteForm.astro";
+import SocialIcons from "../components/SocialIcons.astro";
+import site from "../data/site.json";
+---
+<BaseLayout title="Contact Us">
+  <PageHero eyebrow="Contact" title="Let's get your home sparkling" lead="Request a free quote, or reach out directly. We're here 7 days a week." />
+  <section class="section">
+    <div class="container contact">
+      <div class="contact__info">
+        <div class="card"><h3>Call or text</h3><a href={site.phoneHref}>{site.phone}</a></div>
+        <div class="card"><h3>Email</h3><a href={`mailto:${site.email}`}>{site.email}</a></div>
+        <div class="card"><h3>Hours</h3><p>{site.hours}</p></div>
+        <div class="card"><h3>Follow us</h3><div style="color:var(--forest)"><SocialIcons size={24} /></div></div>
+      </div>
+      <div id="quote"><QuoteForm /></div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .contact { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: start; }
+  .contact__info { display: grid; gap: 16px; }
+  .contact .card { padding: 24px 28px; }
+  .contact .card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .contact .card a { color: var(--forest); font-weight: 600; text-decoration: none; }
+  .contact .card p { margin: 0; }
+  @media (max-width: 860px) { .contact { grid-template-columns: 1fr; } }
+</style>
